@@ -12,6 +12,7 @@ app = Flask(__name__)
 # Get API keys from environment variables
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 SERPAPI_KEY = os.getenv('SERPAPI_KEY')
+PORT = int(os.getenv('PORT', 5000))
 
 # Set OpenAI API key in environment
 os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
@@ -99,4 +100,4 @@ def search_product():
         }), 500
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    app.run(debug=True, port=PORT) 
